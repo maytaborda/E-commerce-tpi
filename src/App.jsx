@@ -14,7 +14,7 @@ const App = () => {
       <Navbar />
       <AuthStatus />
       <Dashboard />
-      <CartButton user={true} cart={[1,2,3]} />
+      <CartButton user={true} cart={["mouse","keyboard","pc"]} />
       <Routes>
         <Route path="/" element={<HomePage/>} />
         <Route path="/signup" element={!userLogin ? <SignUpPage /> : <Navigate to="/" />} />
