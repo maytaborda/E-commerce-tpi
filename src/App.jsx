@@ -4,6 +4,7 @@ import SignUpPage from './pages/SignUpPage';
 import LoginPage from './pages/LoginPage';
 import Navbar from './components/NavBar';
 import AuthStatus from './components/AuthStatus';
+import Dashboard from './components/Dashboard';
 
 const App = () => {
   const userLogin = false;
@@ -11,6 +12,7 @@ const App = () => {
     <Router>
       <Navbar />
       <AuthStatus />
+      <Dashboard />
       <Routes>
         <Route path="/" element={<HomePage/>} />
         <Route path="/signup" element={!userLogin ? <SignUpPage /> : <Navigate to="/" />} />
