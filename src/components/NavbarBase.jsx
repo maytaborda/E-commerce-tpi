@@ -1,0 +1,21 @@
+import { Link } from "react-router-dom"
+import CartButton from "./CartButton"
+
+const NavbarBase = ({user, cart}) => {
+    return (
+        <>
+            <Link className="text-2x1 font-bold text-emerald-400 items-center space-x-2 flex" to="/"> 
+            E-commerce
+            </Link>
+
+            <nav className="flex flex-wrap items-center gap-4">
+                <CartButton user={user} cart={cart} />
+                <Link className="text-gray-400 hover:text-emerald-400 transition duration-300 ease-in-out" to="/">
+                    Home
+                </Link>
+            </nav>
+        </>   
+    )
+}
+
+export default NavbarBase
