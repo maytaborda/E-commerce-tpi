@@ -6,6 +6,7 @@ import Navbar from './components/NavBar';
 import AuthStatus from './components/AuthStatus';
 import Dashboard from './components/Dashboard';
 import CartButton from './components/CartButton';
+import NavbarBase from './components/NavbarBase';
 
 const App = () => {
   const userLogin = false;
@@ -14,7 +15,7 @@ const App = () => {
       <Navbar />
       <AuthStatus />
       <Dashboard />
-      <CartButton user={true} cart={["mouse","keyboard","pc"]} />
+      <NavbarBase user={true} cart={["mouse","keyboard","pc"]} />
       <Routes>
         <Route path="/" element={<HomePage/>} />
         <Route path="/signup" element={!userLogin ? <SignUpPage /> : <Navigate to="/" />} />
