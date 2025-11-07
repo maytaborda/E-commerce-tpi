@@ -1,4 +1,6 @@
+import { KeyRound, Mail } from "lucide-react";
 import { useState } from "react";
+import FormContainer from "../components/FormContainer";
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
@@ -10,25 +12,29 @@ const LoginPage = () => {
         console.log('Password:', password);
     } 
 
+    const fields = [
+    {
+        name: 'email',
+        label: 'Ingrese su correo',
+        icon: Mail,
+        value: email,
+        onChange: setEmail,
+        type: 'email',
+        placeholder: 'Ej.: 2XN0a@example.com',
+    },
+    {
+        name: 'password',
+        label: 'Ingrese su contraseña',
+        icon: KeyRound,
+        value: password,
+        onChange: setPassword,
+        type: 'password',
+        placeholder: 'Ej.: 123456',
+    },
+    ];
+
     return (
-    <div>
-        <h1>Login Page</h1>
-        <form onSubmit={handleSubmit}>
-            <input 
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-            />
-            <input 
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
-            <button type="submit">Login</button>
-        </form>
-    </div>
+        <FormContainer title="Iniciar sesión" fields={fields} onSubmit={handleSubmit} submitLabel="Ingresar" />
     );
 }
 
