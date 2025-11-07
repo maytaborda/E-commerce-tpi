@@ -2,20 +2,14 @@ import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom
 import HomePage from './pages/HomePage';
 import SignUpPage from './pages/SignUpPage';
 import LoginPage from './pages/LoginPage';
-import Navbar from './components/NavBar';
-import AuthStatus from './components/AuthStatus';
-import Dashboard from './components/Dashboard';
-import CartButton from './components/CartButton';
-import NavbarBase from './components/NavbarBase';
+import Navbar from './components/Navbar';
+
 
 const App = () => {
   const userLogin = false;
   return (
     <Router>
       <Navbar />
-      <AuthStatus />
-      <Dashboard />
-      <NavbarBase user={true} cart={["mouse","keyboard","pc"]} />
       <Routes>
         <Route path="/" element={<HomePage/>} />
         <Route path="/signup" element={!userLogin ? <SignUpPage /> : <Navigate to="/" />} />
