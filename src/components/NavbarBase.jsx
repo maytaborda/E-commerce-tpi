@@ -15,6 +15,9 @@ const NavbarBase = ({user, cart}) => {
                 <Link className="text-gray-400 hover:text-emerald-400 transition duration-300 ease-in-out" to="/login">
                     LogIn
                 </Link>
+                <Link className="text-gray-400 hover:text-emerald-400 transition duration-300 ease-in-out" to="/signup">
+                    Register
+                </Link>
                 <CartButton user={user} cart={cart} />    
             </nav>
         </>   

@@ -1,9 +1,8 @@
+import TitleForm from "../components/TitleForm";
+
+
 const SignUpPage = () => {
-    return (
-    <div>
-        <h1>Sign Up</h1>
-    </div>
-    );
+    return <div><TitleForm title="Registrarse"/></div>
 }
 
 export default SignUpPage;
