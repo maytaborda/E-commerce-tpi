@@ -3,9 +3,11 @@ import HomePage from './pages/HomePage';
 import SignUpPage from './pages/SignUpPage';
 import LoginPage from './pages/LoginPage';
 import Navbar from './components/Navbar';
+import AdminPage from './pages/AdminPage';
 
 
 const App = () => {
+  const user = {role: 'admin'}; // This is just a placeholder. Replace with actual user authentication logic.
   const userLogin = false;
   return (
     <Router>
@@ -14,6 +16,7 @@ const App = () => {
         <Route path="/" element={<HomePage/>} />
         <Route path="/signup" element={!userLogin ? <SignUpPage /> : <Navigate to="/" />} />
         <Route path="/login" element={!userLogin ? <LoginPage /> : <Navigate to="/" />} />
+        <Route path="/secret-dashboard" element={user.role === 'admin' ? <AdminPage /> : <Navigate to="/login" />} />
       </Routes>
     </Router>
   );
