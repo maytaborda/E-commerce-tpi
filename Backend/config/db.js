@@ -16,5 +16,5 @@ try {
 }
 }
 
-module.exports = connect08
+module.exports = connectDB
 
