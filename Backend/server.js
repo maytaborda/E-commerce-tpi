@@ -22,7 +22,7 @@ app.use("/api/products", productRoutes)
 app.use("/api/purchases", purchaseRoutes)
 
 //Health
-app.get('/healt', (req, res) => res.json({ ok: true, time: new Date() }))
+app.get('/health', (req, res) => res.json({ ok: true, time: new Date() }))
 
 //Global error handler
 app.use((err, req, res, next) => {
@@ -34,8 +34,8 @@ app.use((err, req, res, next) => {
 connectDB()
 .then (() => {
     app.listen(PORT, () => {
-        console.log('Server corriendo en puerto ${PORT}')
-        logger.info ('Server funcionando en puerto ${PORT}')
+        console.log(`Server corriendo en puerto ${PORT}`)
+        logger.info (`Server funcionando en puerto ${PORT}`)
     })
 })
 .catch((err) =>{

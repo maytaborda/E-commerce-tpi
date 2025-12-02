@@ -1,9 +1,9 @@
 const { body } = require('express-validator')
 
 const registerValidator = [
-    body('name').isString().isLenght({ min: 2}),
+    body('name').isString().isLength({ min: 2}),
     body('email').isEmail(),
-    body('password').isLenght({ min: 6})
+    body('password').isLength({ min: 6})
 ]
 
 const loginValidator = [
@@ -11,4 +11,4 @@ const loginValidator = [
     body('password').exists()
 ]
 
-module.exports = {registerValidator, loginValidator}
+module.exports = { registerValidator, loginValidator }
