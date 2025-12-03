@@ -6,7 +6,7 @@ const logger = createLogger ({
     level: process.env.LOG_LEVEL || 'info',
     format: format.combine(
         format.timestamp(),
-        format.printf(({ timestamp, level, message}) => '${timestamp} ${level}: ${message}')
+        format.printf(({ timestamp, level, message}) => `${timestamp} ${level}: ${message}`)
     ),
     transports: [
         new transports.Console(),

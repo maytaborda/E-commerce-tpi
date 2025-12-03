@@ -4,17 +4,19 @@ const logger = require('../utils/logger')
 
 
 const generateToken = (user) => {
-    return jwt.sign({ id: user._id, email: user.email }, process.env.JWT_SECRET || 'tu_jwt_secreto_aqui', {expiresIn: process.env.JWT_EXPIRES_IN || 'id'})
+    return jwt.sign({ id: user._id, email: user.email }, process.env.JWT_SECRET || 'tu_jwt_secreto_aqui', { expiresIn: process.env.JWT_EXPIRES_IN || '1d' })
 }
 
 exports.register = async (req, res) => {
     const {name, email, password } = req.body
+    console.log(req.body)
     try {
+        
         let user = await User.findOne({ email })
         if (user) return res.status(400).json ({ message: 'Email already in use' })
         user = new User({ name, email, password })
         await user.save()
-        const token = generateToken(User)
+        const token = generateToken(user)
         res.status(201).json({ user: {id: user._id, name: user.name, email: user.email }, token})
         } catch (err){
             logger.error('Register error: ' + err.message)
