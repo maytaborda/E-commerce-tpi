@@ -15,6 +15,7 @@ exports.register = async (req, res) => {
         let user = await User.findOne({ email })
         if (user) return res.status(400).json ({ message: 'Email already in use' })
         user = new User({ name, email, password })
+        console.log(user)
         await user.save()
         const token = generateToken(user)
         res.status(201).json({ user: {id: user._id, name: user.name, email: user.email }, token})
